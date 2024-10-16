@@ -16,7 +16,7 @@ enum ReownAppKitModalStatus {
 }
 
 /// Either a [projectId] and [metadata] must be provided or an already created [appKit].
-/// optionalNamespaces is mostly not needed, if you use it, the values set here will override every optionalNamespaces set in evey chain
+/// optionalNamespaces is mostly not needed, if you use it, the values set here will override every optionalNamespaces set in every chain
 abstract class IReownAppKitModal with ChangeNotifier {
   BuildContext? get modalContext;
 
@@ -60,7 +60,7 @@ abstract class IReownAppKitModal with ChangeNotifier {
   /// The currently selected wallet.
   ReownAppKitModalWalletInfo? get selectedWallet;
 
-  /// Sets up the explorer and appKit if they already been initialized.
+  /// Sets up the explorer and appKit if they have already been initialized.
   Future<void> init();
 
   /// Opens modal on Network Selection Screen
