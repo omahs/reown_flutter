@@ -46,7 +46,7 @@ import 'package:reown_appkit/modal/widgets/modal_provider.dart';
 import 'package:reown_appkit/modal/services/toast_service/toast_service_singleton.dart';
 
 /// Either a [projectId] and [metadata] must be provided or an already created [appKit].
-/// optionalNamespaces is mostly not needed, if you use it, the values set here will override every optionalNamespaces set in evey chain
+/// optionalNamespaces is mostly not needed, if you use it, the values set here will override every optionalNamespaces set in every chain
 class ReownAppKitModal with ChangeNotifier implements IReownAppKitModal {
   String _projectId = '';
 
@@ -1226,7 +1226,7 @@ class ReownAppKitModal with ChangeNotifier implements IReownAppKitModal {
         return 'User rejected';
       } else {
         if (e is CoinbaseServiceException) {
-          // If the error is due to no session on Coinbase Wallet we disconnnect the session on Modal.
+          // If the error is due to no session on Coinbase Wallet we disconnect the session on Modal.
           // This is the only way to detect a missing session since Coinbase Wallet is not sending any event.
           // disconnect();
           throw ReownAppKitModalException('Coinbase Wallet Error');
@@ -1431,7 +1431,7 @@ class ReownAppKitModal with ChangeNotifier implements IReownAppKitModal {
         throw JsonRpcError(code: 5002, message: 'User rejected methods.');
       } else {
         try {
-          // Otherwise it meas chain has to be added.
+          // Otherwise it means chain has to be added.
           return await requestAddChain(newChain);
         } catch (e, s) {
           _appKit.core.logger.d(
